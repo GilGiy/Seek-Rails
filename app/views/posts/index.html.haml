@@ -1,0 +1,13 @@
+.jumbotron
+	%img{:align => "LEFT", :alt => "unlock.png", :src => "http://findicons.com/files/icons/2773/pictonic_free/128/prog_rails.png"}
+	.h1 Seek Rails
+	%br
+	%br
+	%hr
+
+	- @all_posts.each do |p|
+		.panel.panel-primary
+			.panel-heading
+				%h2.panel-title= link_to p.title, post_path(p)
+				%br
+			.panel-body= p.body

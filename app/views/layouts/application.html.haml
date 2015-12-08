@@ -1,0 +1,38 @@
+%html
+  %head
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+          - if current_user
+            %li
+              = link_to "Home", "/posts/"
+            %li
+              = link_to "View Profile", "/posts/profile/"
+            %li
+              = link_to "New Question", new_post_path
+            %li
+              = link_to "Log Out", destroy_user_session_path, method: "delete"
+          - else
+            %li
+              = link_to "Sign In", new_user_session_path    
+    %title Seek Rails
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+        
+    = csrf_meta_tags    
+  %body.custom-content
+    .container{:class => "col-md-10 col-md-offset-1"}
+      = yield
+
+  %footer
+    %p.notice= notice
+    %p.alert= alert

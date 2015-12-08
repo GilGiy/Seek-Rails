@@ -1,0 +1,21 @@
+%center
+	.h2 Current User
+	.h4= "#{current_user.email}"
+	%hr
+
+.jumbotron	
+	.h2 Asked Questions
+	= link_to "Ask New Question", new_post_path, class: "btn btn-primary"
+	%br
+	%br
+	- @current_user_posts.each do |p|
+		.panel.panel-primary
+			.panel-heading
+				%h2.panel-title= link_to p.title, post_path(p)
+				%h5= "Published: #{p.created_at}"
+			.panel-body= truncate(p.body, length: 100)
+			%center
+				= link_to "View Question", post_path(p), class: "btn btn-primary"
+				= link_to "Delete Question", post_path(p), method: "delete", class: "btn btn-danger"
+				%br
+				%br  

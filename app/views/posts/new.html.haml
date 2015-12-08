@@ -1,0 +1,14 @@
+.jumbotron
+	%center
+		.h1 Ask Rails
+		%br
+		%hr
+	.well	
+		= simple_form_for @post do |f|
+			= f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+			.h5 Title
+			= f.input :title, :label => false
+			.h5 Body
+			= f.input :body, as: :text, :label => false
+			%br
+			= f.button :submit, "Submit Question", class: "btn btn-success"  

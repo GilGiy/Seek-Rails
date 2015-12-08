@@ -1,0 +1,27 @@
+.jumbotron
+	%h2= @post.title
+	%h6= "Author: #{@post.user.email}"
+	.well
+		%p= @post.body
+
+.jumbotron
+	%h2 Answers
+	%br
+	%br
+	-@comments.each do |c|
+		.well
+			.p=c.content
+			%br	
+
+.jumbotron
+	%h2 Write your Answer
+	%br
+	.well
+		= simple_form_for(@comment, html: { class: 'form-horizontal' }) do |c|
+			= c.input :content, :label => false
+			= c.hidden_field :post_id, :value => @post.id
+			%br
+			= c.button :submit, "Submit Answer", class: "btn btn-success"
+
+	%center
+		= link_to "Return to Index", "/"
