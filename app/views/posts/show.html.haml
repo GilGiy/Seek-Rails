@@ -1,6 +1,6 @@
 .jumbotron
 	%h2= @post.title
-	%h6= "Author: #{@post.user.email}"
+	%h5= "Published #{@post.created_at}"
 	.well
 		%p= @post.body
 
@@ -9,9 +9,9 @@
 	%br
 	%br
 	-@comments.each do |c|
-		.well
-			.p=c.content
-			%br	
+		.panel.panel-default
+			.panel-body
+				.p=c.content
 
 .jumbotron
 	%h2 Write your Answer

@@ -15,20 +15,25 @@
             %li
               = link_to "Home", "/posts/"
             %li
-              = link_to "View Profile", "/posts/profile/"
+              /   = link_to "View Profile", "/posts/profile/"
+              / %li
+              %a{:href => "/posts/profile/"}
+                Profile
+                -# %span.badge 42
             %li
               = link_to "New Question", new_post_path
             %li
               = link_to "Log Out", destroy_user_session_path, method: "delete"
           - else
             %li
-              = link_to "Sign In", new_user_session_path    
+              = link_to "Sign In", new_user_session_path
+
     %title Seek Rails
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-        
-    = csrf_meta_tags    
+
+    = csrf_meta_tags
   %body.custom-content
     .container{:class => "col-md-10 col-md-offset-1"}
       = yield

@@ -1,28 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Seek-Rails is a very Simple forum-type sight for rails. Feel free to download and play with it!
 
 Things you may want to cover:
 
-* Ruby version
+Second Commit:
+I added the Edit page and Delete Function.
 
-* System dependencies
+For some reason, on the profile page, you have to refresh it before you can open the dropdown menus.
+The Delete Function acts a little wierd sometimes to and passes an error Randomly.
 
-* Configuration
+Hopefully by my third commit I will have added a search function as well.
 
-* Database creation
+Have Fun!
+     Gilbert
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

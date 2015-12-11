@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
-    
+
     before_action :authenticate_user!, :except => [:index, :show]
 
     #index of posts for current user
-	def index 
+	def index
 		@all_posts = Post.all
+    # @atom_posts = Post.find_by title: 'Atom'
+    # @search_results = Post.where(title: "#{@search}")
 	end
-
+  
 	def profile
 		if current_user
 			@current_user_posts = current_user.posts
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
 	end
 
 	#loads page for a new post
-	def new 
+	def new
 		@post = Post.new
 	end
 
@@ -47,18 +49,32 @@ class PostsController < ApplicationController
 		params.require(:post).permit(:title, :body, :user_id)
 	end
 
-    #comments:  
+    #comments:
 	def new_comment
 		@comment = Comment.new
 	end
 
-	#delete post
+	# delete post
 	def destroy
 		@post = Post.find(params[:id])
 		if @post.delete
-			redirect_to "/posts/profile", notice: "Question Deleted"
+			redirect_to "/posts", notice: "Question Deleted"
 		else
 			redirect_to "/posts/profile", notice: "Error deleting Question, please try again."
 		end
 	end
+
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+	@post = Post.find(params[:id])
+		if @post.update_attributes(create_params)
+			redirect_to post_path(@post), notice: "Post updated"
+		else
+			redirect_to :back, notice: "Error updating Post."
+		end
+	end
+
 end

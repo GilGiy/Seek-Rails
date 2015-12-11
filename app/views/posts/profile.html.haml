@@ -1,5 +1,5 @@
 %center
-	.h2 Current User
+	.h1 Current User
 	.h4= "#{current_user.email}"
 	%hr
 
@@ -9,13 +9,22 @@
 	%br
 	%br
 	- @current_user_posts.each do |p|
-		.panel.panel-primary
+		.panel.panel-default
 			.panel-heading
+				.dropdown{:style => "float: right;"}
+					%button#dLabel{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button", :class => "btn btn-primary", :style => "float: right;"}
+						%span.caret
+					%ul.dropdown-menu{:style => "float: right;"}
+						%li
+							= link_to "Edit", edit_post_path(p), method: "get"
+						%li
+							/%a{:href => post_path(p), method: "delete"} Delete
+							= link_to "Delete", post_path(p), method: "delete"
+						%li.divider
+						%li
+							%a{:href => post_path(p)} View
 				%h2.panel-title= link_to p.title, post_path(p)
 				%h5= "Published: #{p.created_at}"
-			.panel-body= truncate(p.body, length: 100)
-			%center
-				= link_to "View Question", post_path(p), class: "btn btn-primary"
-				= link_to "Delete Question", post_path(p), method: "delete", class: "btn btn-danger"
-				%br
-				%br  
+
+
+			.panel-body= truncate(p.body, length: 100)  
