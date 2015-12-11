@@ -1,18 +1,23 @@
 == README
 
-Seek-Rails is a very Simple forum-type sight for rails. Feel free to download and play with it!
+Seek-Rails is a very Simple forum-type sight for rails. Feel free to fork it and play with it!
+I copied the Favicon and Rails Picture from FindIcons.com.
 
-Things you may want to cover:
+The Two main Issues I have found are:
+You have to refresh the "Profile" page in order to open the Dropdown menus
+The Delete function will occasionally return an error.
+
+If you find any others, feel free to post them as an Issue.
+
+
+Third Commit:
+Changed some stuff in the README file.
 
 Second Commit:
 I added the Edit page and Delete Function.
 
-For some reason, on the profile page, you have to refresh it before you can open the dropdown menus.
-The Delete Function acts a little wierd sometimes to and passes an error Randomly.
+First Commit:
+The First and Very basic Configuration.
 
-Hopefully by my third commit I will have added a search function as well.
 
-Have Fun!
-     Gilbert
-
-<tt>rake doc:app</tt>.
+Have Fun Programing!
